@@ -1,2 +1,3 @@
 # CSJourney
-CS50x Final Project Blog/CS Type post
+CS50x Final Project Blog type web app
+
