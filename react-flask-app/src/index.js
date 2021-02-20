@@ -1,17 +1,53 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { ReactSVG } from 'react-svg'
+import {Spring} from 'react-spring/renderprops'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import box from './components/Box'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// Import bootstrap components
+import { Container, Row, Col } from "react-bootstrap";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const rootElement = document.getElementById("root");
+
+// Variables
+
+
+const animatedBox = <Spring
+  from={{ opacity: 0 }}
+  to={{ opacity: 1 }}>
+  {props => 
+  <>
+  
+  <Col className="test d-flex justify-content-center" style={props}>
+      <div>
+          <Row>{box}</Row>
+        <Row className="test d-flex justify-content-center"><h1>4</h1></Row>
+      </div>
+      </Col>
+  
+  </>}
+</Spring>
+
+function App () {
+    return (
+        <Container fluid>
+            <Row>
+                <Col className="d-flex justify-content-center">
+                    <h1>Hello World!</h1>
+                </Col>
+            </Row>
+            <Row className="justify-content-center">        
+                    {animatedBox}     
+                    {animatedBox} 
+                    {animatedBox}         
+            </Row>
+          
+        </Container>
+    
+    ) 
+    
+}
+
+
+ReactDOM.render(<App />, rootElement);
