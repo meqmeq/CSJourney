@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Spring } from "react-spring/renderprops";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const box = (
@@ -22,31 +22,27 @@ const box = (
   </svg>
 );
 
-const animatedBox = (index) => {
+// List of boxes
+// const boxElements = (num) => {
+//   let boxList = [];
+//   for (let i = 0; i < num; i++) {
+//     boxList.push(animatedBox(i));
+//   }
+//   return boxList;
+// };
+const Box = (index) => {
   return (
-    <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
-      {(props) => (
-        <>
-          <Col className="test d-flex justify-content-center" style={props}>
-            <div>
-              <Row>{box}</Row>
-              <Row className="test d-flex justify-content-center">
-                <h1>{index + 1}</h1>
-              </Row>
-            </div>
-          </Col>
-        </>
-      )}
-    </Spring>
+    <>
+      <Col className="test d-flex justify-content-center">
+        <div>
+          <Row>{box}</Row>
+          <Row className="test d-flex justify-content-center">
+            <h1>{index}</h1>
+          </Row>
+        </div>
+      </Col>
+    </>
   );
 };
 
-const boxElements = (num) => {
-  let boxList = [];
-  for (let i = 0; i < num; i++) {
-    boxList.push(animatedBox(i));
-  }
-  return boxList;
-};
-
-export default boxElements;
+export default Box;
