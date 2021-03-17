@@ -35,8 +35,11 @@ const Box = (index) => {
     <>
       <Col className="test d-flex justify-content-center">
         <div>
-          <Row>{box}</Row>
-          <Row className="test d-flex justify-content-center">
+          <Row style={{ height: " auto" }}>{box}</Row>
+          <Row
+            style={{ height: " auto" }}
+            className="test d-flex justify-content-center"
+          >
             <h1>{index}</h1>
           </Row>
         </div>

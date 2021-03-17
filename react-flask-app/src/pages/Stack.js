@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Box from "../components/Box";
 import { useTransition, animated } from "react-spring";
+import "../App.css";
 
 // // Import bootstrap components
 import { Container, Row, Col } from "react-bootstrap";
@@ -40,76 +41,79 @@ const Stack = () => {
   });
   return (
     <>
-      <Container fluid>
-        <Row>
-          <Col className="d-flex justify-content-center">
-            <h1>Basic Stack</h1>
-          </Col>
-        </Row>
-        <Row
-          className="justify-content-center"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          {listItems}
-        </Row>
-        <Row className="justify-content-center ">
-          {/* Add Button */}
-          <Button
-            className="btn mr-2"
-            variant="primary"
-            onClick={() => {
-              index++;
-              setListBox((oldList) => [
-                ...oldList,
-                {
-                  key: index,
-                  item: Box(index),
-                },
-              ]);
+      <Container>
+        <div style={{ height: "700" }} className="WhiteDiv">
+          <Row style={{ height: " auto" }}>
+            <Col className="d-flex justify-content-center">
+              <h1>Basic Stack</h1>
+            </Col>
+          </Row>
+          <Row
+            className="justify-content-center"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "auto",
             }}
           >
-            Push
-          </Button>
-          {/* Remove Button */}
-
-          <Button
-            style={{ display: showButton ? "block" : "none" }}
-            className="btn mr-2"
-            variant="primary"
-            onClick={() => {
-              setListBox((oldList) =>
-                oldList.filter((d) => {
-                  return d.key !== oldList.length;
-                })
-              );
-              index--;
-            }}
-          >
-            Pop
-          </Button>
-          {/* reset Button */}
-          <Button
-            className="btn"
-            variant="primary"
-            onClick={() =>
-              setListBox(() => {
-                index = 1;
-                return [
+            {listItems}
+          </Row>
+          <Row className="justify-content-center " style={{ height: " auto" }}>
+            {/* Add Button */}
+            <Button
+              className="btn mr-2"
+              variant="primary"
+              onClick={() => {
+                index++;
+                setListBox((oldList) => [
+                  ...oldList,
                   {
                     key: index,
                     item: Box(index),
                   },
-                ];
-              })
-            }
-          >
-            Reset
-          </Button>
-        </Row>
+                ]);
+              }}
+            >
+              Push
+            </Button>
+            {/* Remove Button */}
+
+            <Button
+              style={{ display: showButton ? "block" : "none" }}
+              className="btn mr-2"
+              variant="primary"
+              onClick={() => {
+                setListBox((oldList) =>
+                  oldList.filter((d) => {
+                    return d.key !== oldList.length;
+                  })
+                );
+                index--;
+              }}
+            >
+              Pop
+            </Button>
+            {/* reset Button */}
+            <Button
+              className="btn"
+              variant="primary"
+              onClick={() =>
+                setListBox(() => {
+                  index = 1;
+                  return [
+                    {
+                      key: index,
+                      item: Box(index),
+                    },
+                  ];
+                })
+              }
+            >
+              Reset
+            </Button>
+          </Row>
+        </div>
       </Container>
     </>
   );

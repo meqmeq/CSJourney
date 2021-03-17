@@ -1,3 +1,53 @@
-.intro {
+html, body{
+  height: 100%;
+  overflow:auto;
+}
+:root {
+  --ff-primary: "Roboto", sans-serif;
+  --ff-accent: "Playfair Display", serif;
+}
+
+.trails-text {
+  font-size: 5rem;
+}
+
+.whiteContainer {
+  min-height: 650px;
+  align-items: center;
+}
+
+.heroContainer{
+  height: 100vh;
+  overflow:auto;
+  background-image: url("../Pictures/Iceland/5.JPG");
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  filter: grayscale(50%);
+  color: aliceblue;
+  
+}
+
+.darkRow {
+  color: white;
+  background: #343a40;
+}
+
+body {
+  font-family: var(--ff-primary);
+  text-align: "center";
+  align-items: "center";
+}
+
+h1 {
+  font-family: var(--ff-accent);
+}
+h2 {
   text-align: center;
+  font-family: var(--ff-accent);
+}
+
+.Card{
+  width: 18rem;
+  margin: auto;
 }
